@@ -1,10 +1,9 @@
 import logging
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler, filters, ConversationHandler
-import os
 
-# ATENÇÃO: COLE SEU TOKEN ABAIXO
-TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")  # Usa variável de ambiente para segurança
+# ATENÇÃO: SEU TOKEN VAI AQUI (modo simples, direto na string)
+TELEGRAM_TOKEN = "7953008015:AAH4JxQ0LY31kqoi77cpF3H1hfdIyJh6SAk"
 
 # Estados da conversa
 PRESCRICAO, EXECUCAO, TIPO_EXERCICIO, ANALISE = range(4)
@@ -46,7 +45,6 @@ async def receber_tipo(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def analisar_dados(dados):
     try:
-        # Extrair dados
         prescricao = dados["prescricao"]
         execucao = dados["execucao"]
         tipo = int(dados["tipo"])
